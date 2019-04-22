@@ -7,6 +7,13 @@ const initState = {
 };
 
 const statusReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "CREATE_STATUS":
+      console.log("Created status", action.status);
+      break;
+    default:
+      console.log("Default");
+  }
   return state;
 };
 

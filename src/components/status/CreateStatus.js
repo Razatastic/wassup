@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { connect } from "react-redux";
+import createStatus from "../../store/actions/statusActions";
 
-export default function SignIn() {
+function SignIn(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(title, content);
+    props.createStatus({ title, content });
   };
 
   return (
@@ -33,3 +35,14 @@ export default function SignIn() {
     </Container>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createStatus: status => dispatch(createStatus(status))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SignIn);
