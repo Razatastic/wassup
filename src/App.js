@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import "normalize.css";
+import Navbar from "./components/layout/Navbar";
 
 const App = () => (
   <BrowserRouter>
     <div className="App">
-      <h1>Hello World!</h1>
+      <Navbar />
     </div>
   </BrowserRouter>
 );
