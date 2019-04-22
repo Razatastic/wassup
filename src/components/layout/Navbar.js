@@ -12,16 +12,15 @@ export default function NavigationBar() {
   return (
     <div>
       <Navbar light expand="md">
-        <NavbarBrand>
-          <Link
-            to="/"
-            style={{
-              textDecoration: "none",
-              color: "black"
-            }}
-          >
-            wassup?
-          </Link>
+        <NavbarBrand
+          tag={Link}
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "black"
+          }}
+        >
+          wassup?
         </NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
