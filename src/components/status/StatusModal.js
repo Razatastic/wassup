@@ -14,7 +14,12 @@ export default function StatusModal({ className, buttonClicked, closeModal }) {
     setModal(buttonClicked);
   });
   return (
-    <Modal isOpen={modal} className={className} unmountOnClose={true}>
+    <Modal
+      isOpen={modal}
+      toggle={closeModal}
+      className={className}
+      unmountOnClose={true}
+    >
       <ModalHeader toggle={closeModal}>What's on your mind?</ModalHeader>
       <ModalBody>
         <Input
