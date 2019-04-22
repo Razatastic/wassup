@@ -1,12 +1,15 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-
+import { Home, Profile, NoMatch } from "./pages";
 const App = () => (
   <BrowserRouter>
-    <div className="App">
-      <Navbar />
-    </div>
+    <Navbar />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/profile" component={Profile} />
+      <Route component={NoMatch} />
+    </Switch>
   </BrowserRouter>
 );
 
