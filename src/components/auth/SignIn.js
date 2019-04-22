@@ -7,7 +7,13 @@ export default function SignIn() {
 
   return (
     <Container>
-      <Form style={{ margin: 100 }}>
+      <Form
+        style={{ margin: 100 }}
+        onSubmit={e => {
+          e.preventDefault();
+          console.log(email, password);
+        }}
+      >
         <FormGroup>
           <Label for="Email">Email</Label>
           <Input
