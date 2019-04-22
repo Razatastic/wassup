@@ -11,9 +11,17 @@ export default function NavigationBar() {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar expand="md">
         <NavbarBrand>
-          <Link to="/">wassup</Link>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "black"
+            }}
+          >
+            wassup?
+          </Link>
         </NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>

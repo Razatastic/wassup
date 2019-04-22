@@ -1,6 +1,5 @@
 import React from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
-import { Link } from "react-router-dom";
 
 export default function NavigationBar() {
   return (
