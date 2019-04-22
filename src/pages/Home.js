@@ -5,14 +5,17 @@ import Dashboard from "../components/dashboard/Dashboard";
 const Home = () => (
   <Container>
     <Row>
-      <div className="float-right" style={{ margin: 20 }}>
+      <Container
+        className="float-right"
+        style={{ margin: 20, marginBottom: 2 }}
+      >
         <Button style={{ margin: 5 }} color="primary">
           New Status
         </Button>
         <Button style={{ margin: 5 }} color="danger">
           Delete
         </Button>
-      </div>
+      </Container>
     </Row>
     <Row>
       <Dashboard />
