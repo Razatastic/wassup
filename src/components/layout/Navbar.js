@@ -11,7 +11,7 @@ export default function NavigationBar() {
 
   return (
     <div>
-      <Navbar expand="md">
+      <Navbar light expand="md">
         <NavbarBrand>
           <Link
             to="/"
