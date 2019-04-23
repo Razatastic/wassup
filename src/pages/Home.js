@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { Container, Row } from "reactstrap";
-import { Dashboard, PostButton } from "../components/dashboard";
-import StatusModal from "../components/status/StatusModal";
+import React from "react";
+import { Container } from "reactstrap";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Home() {
-  const [buttonClicked, setButtonClicked] = useState(false);
-
+function Home({ auth }) {
+  if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <Container>
-      <Row>
-        <PostButton setButtonClicked={setButtonClicked} />
-      </Row>
-      <Row>
-        <Dashboard />
-      </Row>
-      <StatusModal
-        buttonClicked={buttonClicked}
-        closeModal={() => setButtonClicked(false)}
-      />
+      <div className="text-center h1" style={{ marginTop: 100 }}>
+        Sup brah?
+      </div>
     </Container>
   );
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
+export default connect(mapStateToProps)(Home);
