@@ -2,4 +2,4 @@
 
 #### Being social. Made simple.
 
-Made with React, Redux (Thunk), Firebase, Bootstrap (Reactstrap)
+Made with React, Redux (Thunk), Firebase, Bootstrap (Reactstrap), SASS
