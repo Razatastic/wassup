@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 
-const NavigationBar = ({ signOut }) => (
+const NavigationBar = ({ signOut, profile }) => (
   <Nav className="ml-auto" navbar>
     <UncontrolledDropdown nav inNavbar>
       <DropdownToggle nav caret>
-        John Doe
+        {profile.firstName + " " + profile.lastName}
       </DropdownToggle>
       <DropdownMenu right>
         <DropdownItem tag={Link} to="/profile">
@@ -27,6 +27,12 @@ const NavigationBar = ({ signOut }) => (
   </Nav>
 );
 
+const mapStateToProps = state => {
+  return {
+    profile: state.firebase.profile
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     signOut: () => dispatch(signOut())
@@ -34,6 +40,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(NavigationBar);
