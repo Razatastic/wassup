@@ -17,8 +17,8 @@ const NavigationBar = ({ signOut }) => (
         John Doe
       </DropdownToggle>
       <DropdownMenu right>
-        <DropdownItem>
-          <Link to="/profile">Profile</Link>
+        <DropdownItem tag={Link} to="/profile">
+          Profile
         </DropdownItem>
         <DropdownItem divider />
         <DropdownItem onClick={signOut}>Logout</DropdownItem>
