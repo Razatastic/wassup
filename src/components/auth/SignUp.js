@@ -1,25 +1,33 @@
 import React, { useState } from "react";
-import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+  Container,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Alert
+} from "reactstrap";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { signUp } from "../../store/actions/authActions";
 
-function SignUp({ auth }) {
+function SignUp({ auth, signUp, authError }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    signUp({ email, password, firstName, lastName });
+  };
+
   if (auth.uid) return <Redirect to="/" />;
 
   return (
     <Container>
-      <Form
-        style={{ marginTop: 80 }}
-        onSubmit={e => {
-          e.preventDefault();
-          console.log(firstName, lastName, email, password);
-        }}
-      >
+      <Form style={{ marginTop: 80 }} onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="FirstName">First Name</Label>
           <Input
@@ -55,6 +63,11 @@ function SignUp({ auth }) {
           />
         </FormGroup>
         <Button>Submit</Button>
+        {authError ? (
+          <Alert color="danger" style={{ marginTop: 10 }}>
+            {authError}
+          </Alert>
+        ) : null}
       </Form>
     </Container>
   );
@@ -62,7 +75,18 @@ function SignUp({ auth }) {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   };
 };
-export default connect(mapStateToProps)(SignUp);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: newUser => dispatch(signUp(newUser))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
