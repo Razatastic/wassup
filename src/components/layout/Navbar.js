@@ -6,11 +6,8 @@ import SignedOutLinks from "./SignedOutLinks";
 import logo from "../../assets/logo.png";
 import { connect } from "react-redux";
 
-const signedIn = true;
-
-function NavigationBar() {
+function NavigationBar({ auth }) {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div>
       <Navbar light expand="md">
@@ -19,7 +16,7 @@ function NavigationBar() {
         </NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
-          {signedIn ? <SignedInLinks /> : <SignedOutLinks />}
+          {auth.uid ? <SignedInLinks /> : <SignedOutLinks />}
         </Collapse>
       </Navbar>
     </div>
@@ -27,8 +24,9 @@ function NavigationBar() {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-  return {};
+  return {
+    auth: state.firebase.auth
+  };
 };
 
 export default connect(mapStateToProps)(NavigationBar);
