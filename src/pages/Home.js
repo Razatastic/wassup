@@ -1,16 +1,14 @@
 import React from "react";
-import { Container } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Greeting from "../components/animated/Greeting";
 
 function Home({ auth }) {
   if (auth.uid) return <Redirect to="/dashboard" />;
   return (
-    <Container>
-      <div className="text-center h1" style={{ marginTop: 100 }}>
-        Sup brah?
-      </div>
-    </Container>
+    <div className="animated-text-container">
+      <Greeting />
+    </div>
   );
 }
 
