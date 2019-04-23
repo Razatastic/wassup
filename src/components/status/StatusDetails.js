@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Jumbotron, Spinner } from "reactstrap";
+import { Container, Jumbotron } from "reactstrap";
 import moment from "moment";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { LoadingIcon } from "./";
 
 // Detailed view of status (displayed alone)
 const StatusDetails = ({ status }) => {
@@ -26,11 +27,7 @@ const StatusDetails = ({ status }) => {
       </Container>
     );
   } else {
-    return (
-      <Container className="text-center" style={{ marginTop: 100 }}>
-        <Spinner style={{ width: "3rem", height: "3rem" }} type="grow" />
-      </Container>
-    );
+    return <LoadingIcon />;
   }
 };
 
