@@ -19,6 +19,7 @@ export default function StatusModal({ className, buttonClicked, closeModal }) {
       toggle={closeModal}
       className={className}
       unmountOnClose={true}
+      centered={true}
     >
       <ModalHeader toggle={closeModal}>What's on your mind?</ModalHeader>
       <ModalBody>

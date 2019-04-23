@@ -10,7 +10,7 @@ export default function SignIn() {
   return (
     <Container>
       <Form
-        style={{ margin: 100 }}
+        style={{ marginTop: 80 }}
         onSubmit={e => {
           e.preventDefault();
           console.log(firstName, lastName, email, password);

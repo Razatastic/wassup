@@ -14,11 +14,12 @@ function SignIn(props) {
 
   return (
     <Container>
-      <Form style={{ margin: 100 }} onSubmit={handleSubmit}>
+      <Form style={{ marginTop: 100 }} onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="Title">Title</Label>
           <Input
             placeholder="Trip to the mall"
+            required
             onChange={e => setTitle(e.target.value)}
           />
         </FormGroup>
@@ -27,6 +28,7 @@ function SignIn(props) {
           <Input
             placeholder="I waited for 2 hours and they ran out of my size... UGH!"
             type="textarea"
+            required
             onChange={e => setContent(e.target.value)}
           />
         </FormGroup>

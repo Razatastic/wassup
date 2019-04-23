@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import moment from "moment";
 
+// Summarized verision of status (displayed on home page)
 const StatusSummary = ({ status }) => (
   <Card body style={{ margin: 10 }}>
     <CardTitle className="h4">{status.title}</CardTitle>
