@@ -12,7 +12,7 @@ function NavigationBar({ auth }) {
     <div>
       <Navbar light expand="md">
         <NavbarBrand tag={Link} to="/">
-          <img src={logo} alt="logo" style={{ width: 120 }} />
+          <img src={logo} alt="logo" style={{ width: 150 }} />
         </NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
