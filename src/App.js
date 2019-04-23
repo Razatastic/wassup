@@ -14,7 +14,7 @@ const App = () => (
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/profile" component={Profile} />
       <Route path="/status/:id" component={StatusDetails} />
-      <Route path="/login" component={SignIn} />
+      <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/create" component={CreateStatus} />
       <Route component={NoMatch} />

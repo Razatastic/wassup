@@ -11,8 +11,8 @@ export default function NavigationBar() {
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink tag={Link} to="/login">
-          Log In
+        <NavLink tag={Link} to="/signin">
+          Sign In
         </NavLink>
       </NavItem>
     </Nav>

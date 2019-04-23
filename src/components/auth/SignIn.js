@@ -48,7 +48,7 @@ function SignIn({ signIn, authError, auth }) {
             required
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Sign In</Button>
         <div>
           {authError ? (
             <Alert color="danger" style={{ marginTop: 10 }}>

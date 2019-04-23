@@ -62,7 +62,7 @@ function SignUp({ auth, signUp, authError }) {
             onChange={e => setPassword(e.target.value)}
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Sign Up</Button>
         {authError ? (
           <Alert color="danger" style={{ marginTop: 10 }}>
             {authError}
