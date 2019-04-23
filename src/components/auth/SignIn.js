@@ -10,8 +10,9 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { signIn } from "../../store/actions/authActions";
+import { Redirect } from "react-router-dom";
 
-function SignIn({ signIn, authError }) {
+function SignIn({ signIn, authError, auth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,6 +20,8 @@ function SignIn({ signIn, authError }) {
     e.preventDefault();
     signIn({ email, password });
   };
+
+  if (auth.uid) return <Redirect to="/" />;
 
   return (
     <Container>
@@ -60,7 +63,8 @@ function SignIn({ signIn, authError }) {
 
 const mapStateToProps = state => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   };
 };
 

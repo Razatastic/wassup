@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import createStatus from "../../store/actions/statusActions";
+import { Redirect } from "react-router-dom";
 
-function SignIn({ createStatus }) {
+function SignIn({ createStatus, auth }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -11,6 +12,8 @@ function SignIn({ createStatus }) {
     e.preventDefault();
     createStatus({ title, content });
   };
+
+  if (!auth.uid) return <Redirect to="/login" />;
 
   return (
     <Container>
@@ -38,6 +41,12 @@ function SignIn({ createStatus }) {
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     createStatus: status => dispatch(createStatus(status))
@@ -45,6 +54,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SignIn);

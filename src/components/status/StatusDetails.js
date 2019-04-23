@@ -5,9 +5,12 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { LoadingIcon } from "./";
+import { Redirect } from "react-router-dom";
 
 // Detailed view of status (displayed alone)
-const StatusDetails = ({ status }) => {
+const StatusDetails = ({ status, auth }) => {
+  if (!auth.uid) return <Redirect to="/login" />;
+
   if (status) {
     return (
       <Container>
@@ -36,7 +39,8 @@ const mapStateToProps = (state, ownProps) => {
   const statuses = state.firestore.data.statuses;
   const status = statuses ? statuses[id] : null;
   return {
-    status: status
+    status: status,
+    auth: state.firebase.auth
   };
 };
 

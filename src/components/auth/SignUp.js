@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-export default function SignIn() {
+function SignUp({ auth }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  if (auth.uid) return <Redirect to="/" />;
 
   return (
     <Container>
@@ -55,3 +59,10 @@ export default function SignIn() {
     </Container>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+export default connect(mapStateToProps)(SignUp);
