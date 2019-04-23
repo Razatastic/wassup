@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button, Container, Row } from "reactstrap";
-import Dashboard from "../components/dashboard/Dashboard";
+import { Container, Row } from "reactstrap";
+import { Dashboard, PostButton } from "../components/dashboard";
 import StatusModal from "../components/status/StatusModal";
 
 function Home() {
@@ -9,21 +9,7 @@ function Home() {
   return (
     <Container>
       <Row>
-        <Container
-          className="float-right"
-          style={{ margin: 20, marginBottom: 2 }}
-        >
-          <Button
-            style={{ margin: 5 }}
-            color="primary"
-            onClick={() => setButtonClicked(true)}
-          >
-            New Status
-          </Button>
-          <Button style={{ margin: 5 }} color="danger">
-            Delete
-          </Button>
-        </Container>
+        <PostButton setButtonClicked={setButtonClicked} />
       </Row>
       <Row>
         <Dashboard />
