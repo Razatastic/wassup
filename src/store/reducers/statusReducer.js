@@ -10,11 +10,13 @@ const statusReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_STATUS":
       console.log("Created status", action.status);
-      break;
+      return state;
+    case "CREATE_STATUS_ERROR":
+      console.log("Create project error", action.err);
+      return state;
     default:
-      console.log("Default");
+      return state;
   }
-  return state;
 };
 
 export default statusReducer;
