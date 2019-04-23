@@ -13,7 +13,7 @@ function SignIn({ createStatus, auth }) {
     createStatus({ title, content });
   };
 
-  if (!auth.uid) return <Redirect to="/login" />;
+  if (!auth.uid) return <Redirect to="/signin" />;
 
   return (
     <Container>

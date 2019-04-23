@@ -12,7 +12,7 @@ import { PostButton } from "./";
 const Dashboard = ({ statuses, auth }) => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
-  if (!auth.uid) return <Redirect to="/login" />;
+  if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <Container>
       <Row>

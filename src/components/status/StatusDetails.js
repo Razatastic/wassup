@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 
 // Detailed view of status (displayed alone)
 const StatusDetails = ({ status, auth }) => {
-  if (!auth.uid) return <Redirect to="/login" />;
+  if (!auth.uid) return <Redirect to="/signin" />;
 
   if (status) {
     return (
