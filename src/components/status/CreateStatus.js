@@ -3,13 +3,13 @@ import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import createStatus from "../../store/actions/statusActions";
 
-function SignIn(props) {
+function SignIn({ createStatus }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.createStatus({ title, content });
+    createStatus({ title, content });
   };
 
   return (

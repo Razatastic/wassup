@@ -6,7 +6,7 @@ import SignedOutLinks from "./SignedOutLinks";
 import logo from "../../assets/logo.png";
 import { connect } from "react-redux";
 
-const signedIn = false;
+const signedIn = true;
 
 function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
