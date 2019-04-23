@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import logo from "../../assets/logo.png";
+import { connect } from "react-redux";
 
 const signedIn = false;
 
-export default function NavigationBar() {
+function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -24,3 +25,10 @@ export default function NavigationBar() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {};
+};
+
+export default connect(mapStateToProps)(NavigationBar);

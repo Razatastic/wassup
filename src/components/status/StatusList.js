@@ -11,7 +11,7 @@ const StatusList = ({ statuses }) => {
         {statuses &&
           statuses.map(status => (
             <Link to={"/status/" + status.id} key={status.id}>
-              <StatusSummary status={status} key={status.id} />
+              <StatusSummary status={status} />
             </Link>
           ))}
       </Container>
