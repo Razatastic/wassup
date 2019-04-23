@@ -1,12 +1,17 @@
 import React from "react";
 import { Container } from "reactstrap";
 import StatusSummary from "./StatusSummary";
-import { map } from "rsvp";
+import { Link } from "react-router-dom";
 
 const StatusList = ({ statuses }) => (
   <Container>
+    {/* If statuses exist, then map them. Otherwise, don't. */}
     {statuses &&
-      statuses.map(status => <StatusSummary status={status} key={status.id} />)}
+      statuses.map(status => (
+        <Link to={"/status/" + status.id} key={status.id}>
+          <StatusSummary status={status} key={status.id} />
+        </Link>
+      ))}
   </Container>
 );
 
