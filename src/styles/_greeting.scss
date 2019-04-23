@@ -1,0 +1,18 @@
+.animated-text {
+  font-size: 3vw;
+  width: 100%;
+  overflow: auto;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity, height;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 80px;
+  @media (max-width: 767.98px) {
+    font-size: 5vw;
+  }
+}
