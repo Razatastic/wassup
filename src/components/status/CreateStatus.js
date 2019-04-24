@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import createStatus from "../../store/actions/statusActions";
 import { Redirect } from "react-router-dom";
 
-function SignIn({ createStatus, auth }) {
+function SignIn({ createStatus, auth, history }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
     createStatus({ title, content });
+    history.push("/dashboard");
   };
 
   if (!auth.uid) return <Redirect to="/signin" />;
