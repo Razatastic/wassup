@@ -8,7 +8,9 @@ const StatusSummary = ({ status }) => (
     <CardTitle className="h4">{status.title}</CardTitle>
     <CardSubtitle>{status.content}</CardSubtitle>
     <CardText style={{ marginTop: 5, fontSize: 12, color: "gray" }}>
-      {moment().format("lll")}
+      Created by: {status.authorFirstName} {status.authorLastName}
+      {" ~ "}
+      {moment(status.createdAt.toDate()).calendar()}
     </CardText>
   </Card>
 );

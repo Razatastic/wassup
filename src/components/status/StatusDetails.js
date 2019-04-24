@@ -21,7 +21,7 @@ const StatusDetails = ({ status, auth }) => {
           </div>
           <div>
             <span style={{ fontSize: 14, color: "gray" }}>
-              {moment().format("lll")}
+              {moment(status.createdAt.toDate()).calendar()}
             </span>
           </div>
           <hr className="my-3" />
