@@ -3,3 +3,5 @@
 #### Being social. Made simple.
 
 Made with React (React Spring), Redux (Thunk), Firebase, Bootstrap (Reactstrap), SASS
+
+P.S. - Only used React Hooks! :)
