@@ -14,9 +14,9 @@ export default function PostButton({ setButtonClicked }) {
       >
         New Status
       </Button>
-      <Button style={{ margin: 5 }} color="danger">
+      {/* <Button style={{ margin: 5 }} color="danger">
         Delete
-      </Button>
+      </Button> */}
     </Container>
   );
 }
