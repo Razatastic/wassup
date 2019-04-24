@@ -7,6 +7,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
+// Populates notifications collection with a new notification document
 const createNotification = notification => {
   return admin
     .firestore()
