@@ -40,9 +40,15 @@ export const signUp = newUser => {
           .collection("users")
           .doc(response.user.uid)
           .set({
-            firstName: newUser.firstName,
-            lastName: newUser.lastName,
-            initials: newUser.firstName[0] + newUser.lastName[0]
+            firstName:
+              newUser.firstName.charAt(0).toUpperCase() +
+              newUser.firstName.slice(1),
+            lastName:
+              newUser.lastName.charAt(0).toUpperCase() +
+              newUser.lastName.slice(1),
+            initials:
+              newUser.firstName[0].toUpperCase() +
+              newUser.lastName[0].toUpperCase()
           });
       })
       .then(() => {
