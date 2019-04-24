@@ -8,14 +8,22 @@ import {
 } from "reactstrap";
 import moment from "moment";
 
-const Notifications = () => (
+const Notifications = ({ notifications }) => (
   <Container>
     <h5>Notifications</h5>
     <ListGroup>
-      <ListGroupItem>
-        <ListGroupItemHeading>Yoshi joined the party</ListGroupItemHeading>
-        <ListGroupItemText>{moment(new Date()).calendar()}</ListGroupItemText>
-      </ListGroupItem>
+      {notifications &&
+        notifications.map(item => (
+          <ListGroupItem key={item.id}>
+            <ListGroupItemHeading className="h6">
+              <span style={{ color: "#3D9970" }}>{item.user}</span>{" "}
+              {item.content}
+            </ListGroupItemHeading>
+            <ListGroupItemText>
+              {moment(item.time.toDate()).fromNow()}
+            </ListGroupItemText>
+          </ListGroupItem>
+        ))}
     </ListGroup>
   </Container>
 );

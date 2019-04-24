@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 import StatusModal from "../../components/status/StatusModal";
 import { PostButton } from "./";
 
-const Dashboard = ({ statuses, auth }) => {
+const Dashboard = ({ statuses, auth, notifications }) => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   if (!auth.uid) return <Redirect to="/signin" />;
@@ -23,7 +23,7 @@ const Dashboard = ({ statuses, auth }) => {
           <StatusList statuses={statuses} />
         </Col>
         <Col sm="12" md={{ size: 4, offset: 1 }}>
-          <Notifications />
+          <Notifications notifications={notifications} />
         </Col>
       </Row>
       <StatusModal
@@ -38,11 +38,15 @@ const mapStateToProps = state => {
   return {
     // statuses: state.status.statuses
     statuses: state.firestore.ordered.statuses,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered.notifications
   };
 };
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: "statuses" }])
+  firestoreConnect([
+    { collection: "statuses" },
+    { collection: "notifications", limit: 3 }
+  ])
 )(Dashboard);
