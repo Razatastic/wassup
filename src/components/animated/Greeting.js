@@ -35,7 +35,6 @@ function Greeting() {
     set([]);
     ref.current.push(setTimeout(() => set(["Being Social."]), 500));
     ref.current.push(setTimeout(() => set(["Made simple."]), 3000));
-    ref.current.push(setTimeout(() => set(["Join the movement."]), 6000));
   }, []);
 
   // Call animation on page load
