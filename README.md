@@ -9,5 +9,5 @@ Made with React (React Spring), Redux (Thunk), Firebase, Bootstrap (Reactstrap),
 P.S. - Only used React Hooks! :)
 
 
-## What is Wassup?
-Wassup is a minimalistic social platform that you can sign up for and not have to worry about things such as ads, word limits, censoring and more!
+### What is Wassup?
+- Wassup is a minimalistic social platform that you can sign up for and not have to worry about things such as ads, word limits, censoring and more!
